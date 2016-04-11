@@ -1,0 +1,264 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;">
+    <!ENTITY bull "&#8226;">
+    <!ENTITY copy "&#169;">
+    ]>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:b="http://bootsfaces.net/ui"
+          xmlns:ui="http://java.sun.com/jsf/facelets"
+          xmlns:p="http://primefaces.org/ui"
+          xmlns:pe="http://primefaces.org/ui/extensions"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/images/favicon.png" />
+            </f:facet>
+
+            <title>SharkIt :: Centro de Destrucción</title>
+            
+            <style type="text/css">
+                .sub-header {
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 10px;
+                }
+                .navbar-fixed-top {
+                    border: 0 none;
+                }
+                .selectmenu {
+                    display: block;
+                }
+                .sidebar {
+                    display: none;
+                }
+                .title-brand-large {
+                    display: none;
+                }
+                .title-brand-short {
+                    display: block;
+                }
+                @media (min-width: 768px) {
+                    .sidebar {
+                        background-color: #f5f5f5;
+                        border-right: 1px solid #eee;
+                        bottom: 0;
+                        display: block;
+                        left: 0;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        padding: 0px 2px 2px 2px;
+                        position: fixed;
+                        top: 51px;
+                        z-index: 1000;
+                    }
+                    .selectmenu {
+                        display: none;
+                    }
+                    .title-brand-large {
+                        display: block;
+                    }
+                    .title-brand-short {
+                        display: none;
+                    }
+                }
+                .nav-list {
+                    margin-bottom: 20px;
+                    margin-left: -20px;
+                    margin-right: -21px;
+                }
+                .nav-list > li > a {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+                .nav-list > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+                    background-color: #428bca;
+                    color: #fff;
+                }
+                .main {
+                    padding: 15px;
+                    /*padding: 10px 0px 0px 0px;*/
+                }
+                @media (min-width: 768px) {
+                    .main {
+                        padding-left: 20px;
+                        padding-right: 20px;
+                    }
+                }
+                .main .page-header {
+                    margin-top: 0;
+                }
+                .placeholders {
+                    margin-bottom: 30px;
+                    text-align: center;
+                }
+                .placeholders h4 {
+                    margin-bottom: 0;
+                }
+                .placeholder {
+                    margin-bottom: 20px;
+                }
+                .placeholder img {
+                    border-radius: 50%;
+                    display: inline-block;
+                }
+                .btnGroup {
+                    margin-top: 5px;
+                }
+                .ui-growl {
+                    top:65px;
+                    z-index:99999;
+                }
+                /*                .navbar-toggle {
+                                    width: 100%;
+                                    float: none;
+                                    margin-right: 0;
+                                }*/
+            </style>
+
+            <h:outputScript library="js" name="timelineLocales.js"/>    
+
+            <ui:insert name="resources-app">
+                <ui:include src="/WEB-INF/bootsfaces/resources-app.xhtml"/>
+            </ui:insert>
+
+            <ui:insert name="head" />
+
+        </h:head>
+
+        <h:body>
+            <h:outputScript library="holder" name="holder.js" />
+
+            <ui:include src="/template/sessionTimeOut.xhtml" />
+
+            <pe:tooltip id="tooltipCreator" for="@(.add-tooltip-class)" myPosition="top left" atPosition="bottom left" adjustX="25" adjustY="-10" />
+
+            <p:ajaxStatus styleClass="logo" style="right: 45px; width:32px; height:32px; margin-top: 55px;">
+                <f:facet name="start">
+                    <h:graphicImage library="images" name="ajax-loader.gif" alt="AJAX Status"/>
+                </f:facet>
+                <f:facet name="complete">
+                    <h:outputText value=""/>
+                </f:facet>
+            </p:ajaxStatus>
+
+            <b:navBar inverse="true" fixed="top" fluid="true" >
+
+                <a class="navbar-brand" href="#">
+                    <span class="title-brand-short">SharkIt</span>
+                    <span class="title-brand-large">SharkIt | Centro de Destrucción</span>
+                </a>
+
+                <b:navbarLinks pull="right">
+
+                    <b:dropMenu value="#{menuView.nombreUsuario}" class="btn btn-info" >
+                        <b:navLink value="Inicio" outcome="inicio" iconAwesome="home" />
+                        <b:navLink value="Cambiar contraseña" iconAwesome="key" onclick="showChangePassword();
+                                return false;" />
+                        <b:navLink value="Salir" iconAwesome="sign-out" href="/j_spring_security_logout" />
+                    </b:dropMenu> 
+
+                    <h:form prependId="false" styleClass="selectmenu mediumFont" >
+                        <h:panelGrid columns="2"  columnClasses="themeText, themeSelect" style="margin-top: 3px;">
+                            <h:outputText value="Opciones: " style="color: #FFF; margin-right: 2px;"/>
+                            <p:panelMenu model="#{menuView.model}" id="menuViewMobile" />
+                        </h:panelGrid>
+                    </h:form>
+
+                    <h:form id="themeForm" prependId="false" styleClass="navbar-form navbar-right" rendered="#{userSettings.showAvailableThemes}" >
+                        <h:panelGrid columns="2"  columnClasses="themeText, themeSelect" style="margin-top: 3px;">
+                            <h:outputText value="Apariencia: " style="color: #FFF; margin-right: 2px;"/>
+                            <p:selectOneMenu id="themeSelectMenu" value="#{userSettings.currentTheme}" var="theme" effect="drop" converter="#{themeConverter}"
+                                             onchange="$('#themeForm').submit()" style="width: 185px;">
+
+                                <f:selectItems var="t"
+                                               value="#{userSettings.availableThemes}"
+                                               itemLabel="#{t.name}"
+                                               itemValue="#{t}"/>
+                                <p:column>
+                                    <p:graphicImage value="#{theme.image}" rendered="${not empty theme.image}"/>
+                                </p:column>
+                                <p:column>
+                                    #{theme.name}
+                                </p:column>
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                    </h:form>
+
+                </b:navbarLinks>
+
+            </b:navBar>
+
+            <b:container fluid="true">
+                <c:choose >
+                    <c:when test="#{userSettings.fullLayout}">
+                        <b:row>
+                            <b:column col-sm="1" col-md="1" styleClass="sidebar" style="width: 40px;" >
+                                <h:form id="formPnlShowMenu">
+                                    <p:menubar>
+                                        <p:menuitem value="" icon="fa fa-lg fa-bars  #{userSettings.currentTheme.name}-fa-icon" ajax="false" >
+                                            <f:setPropertyActionListener value="false" target="#{userSettings.fullLayout}" />
+                                        </p:menuitem>
+                                    </p:menubar>
+                                </h:form>
+                            </b:column> 
+
+                            <b:column col-sm="12" offset-sm="0" col-md="12" offset="0" styleClass="main" style="padding-left: 45px;" >
+                                <p:spacer height="30" />
+                                <ui:insert name="centerContent"/>
+                                <p:spacer height="40" />
+                            </b:column>
+                        </b:row>
+                    </c:when>
+                    <c:otherwise>
+                        <b:row>
+                            <b:column col-sm="3" col-md="2" styleClass="sidebar" offset="0" >
+                                <ui:insert name="nbtop">
+                                    <ui:include src="/WEB-INF/bootsfaces/menu.xhtml"/>
+                                    <p:spacer height="60" />
+                                </ui:insert>
+                            </b:column>
+
+                            <b:column col-sm="9" offset-sm="3" col-md="10" offset="2" styleClass="main" >
+                                <p:spacer height="30" />
+                                <ui:insert name="centerContent"/>
+                                <p:spacer height="40" />
+                            </b:column>
+                        </b:row>
+                    </c:otherwise>
+                </c:choose>
+
+            </b:container>
+
+            <ui:insert name="nbtop">
+                <ui:include src="/WEB-INF/bootsfaces/footer.xhtml"/>
+            </ui:insert>
+
+            <ui:insert name="dialogs">
+                <ui:include src="/template/dialogs.xhtml"/>
+            </ui:insert>
+
+            <ui:insert name="ajaxHandler">
+                <ui:include src="/WEB-INF/bootsfaces/ajaxHandler.xhtml"/>
+            </ui:insert>
+
+            <p:ajaxStatus onstart="PF('blockUIWidget').block()" oncomplete="PF('blockUIWidget').unblock()"/>
+            <pe:blockUI widgetVar="blockUIWidget" target="@(.blockable)" autoShow="true">  
+                <h:panelGrid columns="2">  
+                    <h:graphicImage library="images" name="ajax-loader1.gif"  
+                                    style="margin-right: 12px; vertical-align: middle;"/>  
+                    <h:outputText value="Please wait..." style="white-space: nowrap;"/>  
+                </h:panelGrid>  
+            </pe:blockUI>
+
+            <h:form>
+                <p:remoteCommand name="showChangePassword" action="#{menuView.changePassword}" />
+            </h:form>
+
+        </h:body>
+    </html>

@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
+                template="/WEB-INF/bootsfaces/templateLogin.xhtml">
+
+    <ui:define name="centerContent">
+
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+            }
+            .form-signin {
+                margin: 0 auto;
+                width: auto;
+                max-width: 550px;
+                padding: 15px;
+                border: none;
+            }
+            .form-signin-bs {
+                margin: 0 auto;
+                min-width: 330px;
+                max-width: 530px;
+                padding: 15px;
+            }
+        </style>
+        <h:form id="loginForm" prependId="false" styleClass="form-signin-bs" >
+            <p:growl id="growl" showDetail="true" showSummary="true" />
+            <p:focus />
+            <h3><span class="text-blue text-bold">L</span>ogin </h3>
+            <hr/>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <p:inputText id="j_username" value="#{loginBean.usuario.user}" required="true" requiredMessage="* La clave de usuario es requerido" 
+                                 styleClass="form-control" placeholder="Clave de usuario" autocomplete="off"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <p:inputText id="j_password"  value="#{loginBean.usuario.password}" type="password" maxlength="25" required="true" requiredMessage="* El password es requerido" 
+                                 styleClass="form-control" placeholder="Password" />
+
+                </div>
+            </div>
+            
+            <b:commandButton look="primary btn-block" value="Ingresar" iconAwesome="sign-in" size="lg" actionListener="#{loginBean.login}" />
+
+        </h:form>        
+    </ui:define>
+
+</ui:composition>

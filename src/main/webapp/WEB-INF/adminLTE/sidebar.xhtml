@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:pe="http://primefaces.org/ui/extensions"
+             xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Settings tab content -->
+            <div class="tab-pane active" id="control-sidebar-settings-tab">
+
+                <h:form id="themeForm" prependId="false" styleClass="navbar-form navbar-right" >
+                    <h3 class="control-sidebar-heading">Configuración</h3>
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Apariencia
+                        </label>
+                            <p:selectOneMenu id="themeSelectMenu" value="#{userSettings.currentTheme}" var="theme" effect="drop" converter="#{themeConverter}"
+                                             onchange="$('#themeForm').submit()" style="width: 185px;">
+
+                                <f:selectItems var="t"
+                                               value="#{userSettings.availableThemes}"
+                                               itemLabel="#{t.name}"
+                                               itemValue="#{t}"/>
+                                <p:column>
+                                    <p:graphicImage value="#{theme.image}" rendered="${not empty theme.image}"/>
+                                </p:column>
+                                <p:column>
+                                    #{theme.name}
+                                </p:column>
+                            </p:selectOneMenu>
+
+                    </div>
+                </h:form>
+
+            </div><!-- /.tab-pane -->
+        </div>
+    </aside><!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+
+</ui:fragment>

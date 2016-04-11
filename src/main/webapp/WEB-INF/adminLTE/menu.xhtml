@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:p="http://primefaces.org/ui">
+
+    <style type="text/css">
+        .main-sidebar-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 65px;
+            background-color: #99FFFF;
+            padding:15px;
+        }
+    </style>
+    <!-- Left side column. contains the sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- search form -->
+
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">MENÚ PRINCIPAL</li>
+                <h:outputText value="#{menuView.menuHtml}" escape="false" />
+            </ul>
+
+        </section>
+        <!-- /.sidebar -->
+
+<!--        <section class="main-sidebar-footer">
+            Footer 
+        </section>-->
+
+    </aside>
+
+</ui:fragment>

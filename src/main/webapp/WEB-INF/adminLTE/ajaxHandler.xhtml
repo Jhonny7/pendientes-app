@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:form>
+
+        <p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException"
+                                update="exceptionDialog"
+                                onexception="javascript: alert('exception'); document.location.href = document.location.href;" />
+
+        <p:ajaxExceptionHandler type="java.lang.NullPointerException"
+                                update="exceptionDialog"
+                                onexception="PF('exceptionDialog').show();" />
+
+        <p:dialog id="exceptionDialog" header="Exception '#{pfExceptionHandler.type}' occured!" widgetVar="exceptionDialog"
+                  height="500px" >
+
+            <p:outputPanel rendered='#{pfExceptionHandler.type eq "javax.faces.application.ViewExpiredException"}' >
+
+                <h:outputText value="Ocurrió un error cargar la página, presione el botón para intentarlo nuevamente." />
+                
+                <p:button onclick="document.location.href = document.location.href;"
+                          value="Recargar página"
+                          style="padding: 3px;"
+                          rendered="#{pfExceptionHandler.type == 'javax.faces.application.ViewExpiredException'}" />
+
+            </p:outputPanel>
+            
+            <p:outputPanel rendered='#{pfExceptionHandler.type ne "javax.faces.application.ViewExpiredException"}' >
+
+                Message: #{pfExceptionHandler.message} <br/>
+                StackTrace: <h:outputText value="#{pfExceptionHandler.formattedStackTrace}" escape="false" /> <br />
+            
+            </p:outputPanel>
+        </p:dialog>
+
+    </h:form>
+
+</ui:composition>

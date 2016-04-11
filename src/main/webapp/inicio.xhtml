@@ -1,0 +1,137 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/WEB-INF/adminLTE/template.xhtml">
+    <ui:define name="head">
+        <style type="text/css">
+            .form-signin-bs {
+                margin: 0 auto;
+                min-width: 330px;
+                max-width: 530px;
+                padding: 15px;
+            }
+        </style>    
+    </ui:define>
+
+    <ui:define name="headerContent">
+        <h1>
+            <span class="text-blue text-bold">P</span>endientes
+        </h1>
+    </ui:define>
+
+    <ui:define name="centerContent">
+        <h:form id="formData">
+            <p:growl id="msgs" autoUpdate="false" showDetail="true" />
+            <center>
+                <p:panel id="pnlData" visible="#{pendientesBean.showPanelDatos}" style="margin-top: 15px;width: 100%" >
+                    <f:facet name="header">
+                                    <div align="center">
+                                        <p:outputLabel value="#{pendientesBean.info}"/>    
+                                    </div>
+                                </f:facet>
+                    <p:dataTable var="pdts" 
+                                 value="#{pendientesBean.currents}" 
+                                 rows="10"
+                                 id="dtDatos" 
+                                 lazy="true" 
+                                 paginator="true" 
+                                 editable="true" rowKey="#{pdts.id}"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15" 
+                                 paginatorPosition="bottom" paginatorAlwaysVisible="false"
+                                 widgetVar="wvDatos" 
+                                 rowIndexVar="rowIndex" scrollable="true">
+
+                        <p:ajax event="rowEdit" listener="#{pendientesBean.onRowEdit}" update="@([id$=dtDatos]) @([id$=msgs])" />
+                        <p:ajax event="rowEditCancel" listener="#{pendientesBean.onRowCancel}" update="@([id$=dtDatos]) @([id$=msgs])" />
+
+                        <f:facet name="header">
+                            <p:outputPanel style="text-align: right;">
+                                <p:commandButton icon="ui-icon-plus" value="Nuevo" action="#{pendientesBean.cleanObject}" 
+                                                 update="@([id$=formNewRegistro]) @([id$=formData])" process="@form" >
+                                    <f:setPropertyActionListener value="#{null}" target="#{pendientesBean.current}" />
+                                    <f:setPropertyActionListener value="false" target="#{pendientesBean.showPanelDatos}" />
+                                    <f:setPropertyActionListener value="create" target="#{pendientesBean.tipoActualizacion}" />
+                                </p:commandButton>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column headerText="Nombre" style="width:115px; text-align: center;" sortBy="#{pdts.nombre}">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{pdts.nombre}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{pdts.nombre}"  style="width:30%" label="Nombre" maxlength="128" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Actividad" style="width:115px; text-align: center;" sortBy="#{pdts.actividad}">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{pdts.actividad}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{pdts.actividad}" style="width:30%" label="Actividad" maxlength="128" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+
+                        <p:column style="width:35px; text-align: center" >
+                            <p:rowEditor />
+                        </p:column>
+
+                        <p:column style="width:35px; text-align: center" >
+                            <p:commandLink action="#{pendientesBean.delete}" process="@this" update="@([id$=dtDatos]) @([id$=msgs]) @([id$=pnlData])" title="Eliminar Cliente" >
+                                <span class="ui-icon ui-icon-trash"></span> 
+                                <f:setPropertyActionListener value="#{pdts}" target="#{pendientesBean.selectedCurrent}" />
+                                <p:confirm header="Confirmación" message="Estás seguro de eliminar el registro?" icon="ui-icon-alert" />
+                            </p:commandLink> 
+                        </p:column>
+
+                    </p:dataTable>
+                </p:panel>
+            </center>
+        </h:form>
+        
+        <h:form id="formNewRegistro" >
+            <p:panel id="pnlActualizacion" visible="#{not pendientesBean.showPanelDatos}" >
+
+                <f:facet name="header" >
+                    <h:outputText value="Alta de Factura" rendered="#{pendientesBean.tipoActualizacion eq 'create'}" />
+                    <h:outputText value="Actualización de Factura" rendered="#{pendientesBean.tipoActualizacion eq 'update'}" />
+                </f:facet>
+
+                <pe:fluidGrid styleClass="fluidGrid" hGutter="10" vGutter="5" style="width: 100%;" id="fluidGrid">
+
+                    <pe:fluidGridItem styleClass="input-medium">
+                        <div class="dynaFormLabel">
+                            <p:outputLabel value="Nombre" for="nof" />
+                        </div>
+                        <p:inputText id="nof" value="#{pendientesBean.current.nombre}" requiredMessage="Nombre requerido" maxlength="128" required="true" />
+                    </pe:fluidGridItem>
+                    <pe:fluidGridItem styleClass="input-medium">
+                        <div class="dynaFormLabel">
+                            <p:outputLabel value="Actividad" for="ac" />
+                        </div>
+                        <p:inputText id="ac" value="#{pendientesBean.current.actividad}" requiredMessage="Actividad requerido" maxlength="128" required="true" />
+                    </pe:fluidGridItem>
+                </pe:fluidGrid>
+
+
+                <f:facet name="footer" >
+                    <p:commandButton type="submit" value="Agregar" actionListener="#{pendientesBean.create}" process="@form"
+                                     update="@([id$=formNewRegistro]) @([id$=formData]) @([id$=msgs])" icon="fa fa-save"
+                                     rendered="#{pendientesBean.tipoActualizacion eq 'create'}" />
+                    <p:spacer width="10" />
+                    <p:commandButton value="Cancelar" update="@([id$=formNewRegistro]) @([id$=formData])" process="@this" icon="fa fa-hand-o-left" >
+                        <f:setPropertyActionListener value="true" target="#{pendientesBean.showPanelDatos}" />
+                        <p:resetInput target="pnlActualizacion" />
+                    </p:commandButton>
+                </f:facet>
+
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>

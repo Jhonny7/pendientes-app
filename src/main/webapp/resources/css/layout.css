@@ -1,0 +1,485 @@
+body {
+    margin: 4px 4px 0px 4px !important;
+}
+
+body > .ui-layout-north {
+    background: none;
+    border: none;
+    color: #000000;
+    padding: 0px;
+    overflow: hidden;
+}
+
+body > .ui-layout-south {
+    background: none;
+    background-color: white !important;
+    /*border: none;*/
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 11px !important;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-top: 0px;
+    /*    padding: 0px;
+        margin: 0px;*/
+}
+
+body > .ui-layout-north .ui-layout-center {
+    border: none;
+    background: none !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+body > .ui-layout-north .ui-layout-north {
+    border: none;
+    background: none !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+body > .ui-layout-north .ui-layout-center .ui-layout-unit-content, body > .ui-layout-north .ui-layout-north .ui-layout-unit-content {
+    background: none !important;
+}
+
+/*.ui-layout-south .ui-layout-unit-content {
+    color: black;
+}*/
+
+body > .ui-layout-north .ui-layout-unit {
+    background: white !important;
+}
+
+#panelPrincipal #panelPrincipal_content {
+    padding-top: 0px !important;
+}
+
+.pnlPrincipal {
+    border: none; 
+    padding: 0px 10px 0 10px; 
+}
+
+.pnlTitle {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+.pnlTitle .ui-panel-content {
+    padding: 0px;
+}
+
+.pnlTitle h1 {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+.pnlTitle .subtitle {
+    font-size: 11pt !important;
+    padding: 5px 25px 5px 25px;
+    /*    border: none;
+        background: none;*/
+}
+
+.ui-layout-north {
+    z-index:20 !important;
+    overflow:visible !important;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+    overflow:visible !important;
+}
+
+/*.ui-layout-north, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd {*/
+.ui-layout-north, .ui-layout-north .ui-layout-center {
+    border: none;
+    /*                margin: 1px;
+        padding: 1px;*/
+}
+
+.ui-layout-center {
+    border: none;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    /*                margin: 1px;
+        padding: 1px;*/
+}
+
+.border-solid {
+    border-style: solid !important;
+}
+
+/*
+Let submenu width be based on content
+.menu-principal .ui-menu .ui-menu-parent .ui-menu-child {
+    width: auto;
+    white-space: nowrap;
+}
+
+Prevent rightward facing icons from wrapping
+.menu-principal .ui-menu-parent > .ui-menu-link > span.ui-icon-triangle-1-e {
+    position: absolute;
+    height:16px;
+    top:50%;
+    margin-top:-8px;
+    right: -8px;
+}
+Make room for righward facing icons
+.menu-principal .ui-menu ul.ui-menu-child {
+    padding-right: 16px !important;
+}
+Set link width, which affects submenu overlap and is related to rightward facing icon padding
+.menu-principal .ui-menu-child .ui-menu-link {
+    width: 100% !important;
+}
+Prevent menuitem icon from generating a line break. Also make room for left-side icon.  Note: we use relative parent absolute child strategy
+.menu-principal .ui-menu-child > .ui-menu-item > .ui-menu-link > .ui-menu-text {
+    position: relative !important;
+    margin-left: 16px !important;
+}
+.menu-principal .ui-menu-child > .ui-menu-item > .ui-menu-link > .ui-menu-text > .ui-menu-icon-left {
+    position: absolute;
+    height:16px;
+    top:50%;
+    margin-top:-8px;
+    left: -16px;
+}*/
+/*
+.menu-principal .ui-menuitem-link {
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+.menu-principal li {
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+.menu-principal ul.ui-menu-child {
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+.menu-principal li {
+    white-space: nowrap;
+}
+
+.menu-principal ul {
+    width: auto !important;
+}
+
+.menu-principal .ui-menuitem {
+    margin-right: 5px;
+}
+
+.menu-principal ul.ui-menu-child {
+    min-width: 250px !important;
+    width: auto !important;
+}
+*/
+.menu-principal ul {
+    white-space: nowrap !important;
+    width: auto !important;
+}
+
+.menu-principal .ui-panelmenu-header a {
+    font-size: 1.15em !important;
+    font-weight: bold;
+}
+
+.menu-principal .ui-menuitem-text {
+    font-size: 1.1em;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.selectmenu .ui-menuitem-text {
+    margin-left: 6px;
+}
+
+#header .ui-panelgrid .ui-widget-content {
+    background: none !important;
+    border: none;
+}
+
+#headerForm .logo {
+    position: relative;
+    float: left;
+    top: -3px;
+    height: 55px;
+}
+
+.logo {
+    position: absolute;
+    float: left;
+    top: 5px;
+}
+
+.logoAdea {
+    height: 25px;
+    width: 337px;
+}
+
+.logoCreel {
+    height: 60px;
+    width: 190px;
+}
+
+#componentList,
+#useCaseList {
+    border-width: 0;
+    background: none;
+    white-space: nowrap;
+}
+
+#componentList .ui-menuitem-link,
+#useCaseList .ui-menuitem-link {
+    padding: 0.10em;
+}
+
+#componentList .ui-separator {
+    margin: 5px 0;
+    width: 120%;
+}
+
+#useCaseList .ui-menuitem {
+    width: auto !important;
+}
+
+#useCaseList .ui-menuitem-text {
+    padding-left: 3px;
+}
+
+#useCaseList .ui-menuitem-link {
+    width: 115%;
+}
+
+.docuTable {
+    line-height: 1.3 !important;
+}
+
+.docuTable table,
+.docuEventTable table {
+    width: auto !important;
+    table-layout: auto !important;
+}
+
+.docuTable thead th,
+.docuTable tbody td,
+.docuTable tfoot td {
+    word-break: normal;
+}
+
+.docuCaption {
+    vertical-align: middle;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 1px;
+}
+
+.docuEventCaption {
+    vertical-align: middle;
+    text-align: center;
+    height: 20px;
+    margin-top: 8px;
+    margin-bottom: 1px;
+}
+
+#docuTabView {
+    padding: 0;
+    border: none;
+}
+
+#docuTabView .ui-tabs-panel {
+    padding: 1em 0;
+}
+
+div.centerContent {
+    padding: 15px;
+    font-size: 13px;
+}
+
+div.centerExample {
+    padding: 0 15px 0 15px;
+}
+
+div.source {
+    margin: 15px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#sourceTabView .ui-tabs-panel {
+    padding: 0em 1em;
+}
+
+.smallNav {
+    text-align: right;
+    float: right;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: -15px;
+    /*margin-top: -41px;  shows in IE7 and below */
+}
+
+.smallNav td {
+    font-size: 11px;
+}
+
+.smallNav .smallNavImg {
+    color: #D61F27 !important;
+    font-weight: bold;
+    border: none;
+    font-size: 10px;
+    padding-right: 4px;
+    padding-top: 2px;
+}
+
+.smallNav .smallNavText {
+    color: #4F4F4F !important;
+    font-size: 11px;
+    vertical-align: middle;
+    padding-right: 4px;
+    padding-top: 4px;
+}
+
+.smallNav .smallNavText a {
+    color: #4F4F4F !important;
+    text-decoration: none;
+    border-bottom: dotted 1px #4F4F4F !important;
+}
+
+.smallNav .smallNavText a:hover {
+    color: blue !important;
+    border-bottom: dotted 1px blue !important;
+}
+
+.developersCol1 {
+    padding: 2px 10px 2px 5px;
+    text-align: right;
+}
+
+.developersCol2 {
+    padding: 2px;
+    text-align: left;
+}
+
+.ui-icon-none {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    background-image: none !important;
+}
+
+.ui-icon-new-comp {
+    background-image: url("#{resource['images/new.png']}") !important;
+    margin-right: 3px;
+}
+
+.ui-icon-updated-comp {
+    background-image: url("#{resource['images/updated.png']}") !important;
+    margin-right: 3px;
+}
+
+.icon-system-new {
+    background-image: url("#{resource['images/new_1.png']}") !important;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-system-file-excel {
+    background-image: url("#{resource['images/xls-icon.png']}") !important;
+}
+
+.icon-system-file-pdf {
+    background-image: url("#{resource['images/pdf-icon.png']}") !important;
+}
+
+.icon-adea-console {
+    background-image: url("#{resource['images/icons/console.png']}") !important;
+}
+
+.icon-adea-settings {
+    background-image: url("#{resource['images/icons/settings.png']}") !important;
+}
+
+.icon-adea-catalog {
+    background-image: url("#{resource['images/icons/catalog.png']}") !important;
+}
+
+.icon-adea-reports {
+    background-image: url("#{resource['images/icons/report.png']}") !important;
+}
+
+.icon-adea-cancel {
+    background-image: url("#{resource['images/icons/cancel.png']}") !important;
+}
+
+.icon-adea-chart {
+    background-image: url("#{resource['images/icons/chart.png']}") !important;
+}
+
+.icon-adea-trash {
+    background-image: url("#{resource['images/icons/trash.png']}") !important;
+}
+
+.icon-adea-inbox {
+    background-image: url("#{resource['images/icons/inbox.png']}") !important;
+}
+
+.icon-adea-truck {
+    background-image: url("#{resource['images/icons/truck.png']}") !important;
+}
+
+.icon-adea-start {
+    background-image: url("#{resource['images/icons/start2.png']}") !important;
+}
+
+.icon-adea-route {
+    background-image: url("#{resource['images/icons/map_with_pin.png']}") !important;
+}
+
+.icon-adea-logistica {
+    background-image: url("#{resource['images/icons/logistic.png']}") !important;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.redmond-fa-icon { color: #619fcf; } 
+.bluesky-fa-icon { color: #406ba6; } 
+.glass-x-fa-icon { color: #386186; } 
+.home-fa-icon { color: #52575c; } 
+.cupertino-fa-icon { color: #619fcf; } 
+.delta-fa-icon { color: #4da5ef; } 
+.aristo-fa-icon { color: #85b2cb; } 
+.sam-fa-icon { color: #7890d0; } 
+.start-fa-icon { color: #0078ae; } 
+.vader-fa-icon { color: #adadad; } 
+.ui-lightness-fa-icon { color: #f6a828; } 
+.ui-darkness-fa-icon { color: #aaa; } 
+.trontastic-fa-icon { color: #9fda58; } 
+.sunny-fa-icon { color: #fece2f; } 
+.humanity-fa-icon { color: #c99873; } 
+.hot-sneaks-fa-icon { color: #93c3cd; }
+.excite-bike-fa-icon { color: #1484e6; }
+.dot-luv-fa-icon { color: #5c8ab7; }
+.flick-fa-icon { color: #0073ea; }
+
+.redmond-ui-state-hover {
+    border: 1px solid #79B7E7;
+    background-color: #D0E5F5;
+    font-weight: bold;
+    color: #1D5987;
+}

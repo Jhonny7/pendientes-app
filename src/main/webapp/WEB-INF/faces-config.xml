@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+    <!-- JSF and Spring are integrated -->
+    <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+
+        <resource-bundle>
+            <base-name>regularExpresion</base-name>
+            <var>exp</var>
+        </resource-bundle>
+
+    </application>
+    
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+        </locale-config>
+    </application>
+
+
+    <managed-bean>
+        <managed-bean-name>loginBean</managed-bean-name>
+        <managed-bean-class>com.famsa.beans.LoginBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>usuarioService</property-name>
+            <value>#{usuarioService}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>abstractBean</managed-bean-name>
+        <managed-bean-class>com.famsa.beans.AbstractBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+        <managed-property>
+            <property-name>genericService</property-name>
+            <value>#{genericService}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pendientesBean</managed-bean-name>
+        <managed-bean-class>com.famsa.beans.PendienteBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+        <managed-property>
+            <property-name>pendienteService</property-name>
+            <value>#{pendienteService}</value>
+        </managed-property>
+    </managed-bean>
+</faces-config>

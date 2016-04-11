@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <f:view contentType="text/html" locale="es">
+
+        <pe:head>
+            <f:facet name="first">
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+                <meta http-equiv="pragma" content="no-cache"/>
+                <meta http-equiv="cache-control" content="no-cache"/>
+                <meta http-equiv="expires" content="0"/>
+            </f:facet>
+
+            <title>
+                <ui:insert name="title">
+                    AdeA México :: Centro de Tratamiento Documental
+                </ui:insert>
+            </title>
+
+            <ui:insert name="resources-app">
+                <ui:include src="/WEB-INF/adminLTE/resources-app.xhtml"/>
+            </ui:insert>
+
+            <script>
+                var sharedCss = window.location.protocol + '//' + window.location.host + '/shared/css/commons.css';
+                $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', sharedCss));
+            </script>
+        </pe:head>
+
+        <h:body>
+
+            <pe:blockUI widgetVar="blockUIWidget" target="@(.blockable)" autoShow="true">  
+                <h:panelGrid columns="2">  
+                    <h:graphicImage library="images" name="ajax-loader1.gif"  
+                                    style="margin-right: 12px; vertical-align: middle;"/>  
+                    <h:outputText value="Please wait..." style="white-space: nowrap;"/>  
+                </h:panelGrid>  
+            </pe:blockUI>
+
+            <p:ajaxStatus onstart="PF('blockUIWidget').block()" oncomplete="PF('blockUIWidget').unblock()"/>
+
+            <pe:blockUI widgetVar="blockUIWidget" target="@(.blockable)" autoShow="true">  
+                <h:panelGrid columns="2" style="border-style: none !important;">  
+                    <h:graphicImage library="images" name="ajax-loader1.gif"  
+                                    style="margin-right: 12px; vertical-align: middle;" />  
+                    <h:outputText value="Espere por favor..." style="white-space: nowrap;"/>  
+                </h:panelGrid>  
+            </pe:blockUI>
+
+            <ui:insert name="centerContent"/>
+
+        </h:body>
+
+    </f:view>
+</html>

@@ -1,0 +1,24 @@
+.GREEN {
+    background-color: #00BB00;
+    text-shadow:1px 1px 1px #fff; 
+}
+
+.BLUE {
+    background-color: #2299EE;
+    text-shadow:1px 1px 1px #fff;
+}
+
+.RED {
+    background-color: #DD3411;
+    color: #fff;
+    text-shadow:1px 1px 1px #000;
+}
+
+.YELLOW {
+    background-color: #F4F87E;
+    text-shadow:1px 1px 1px #9da129;
+}
+
+.wrappable{
+               
+            }

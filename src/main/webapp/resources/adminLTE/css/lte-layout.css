@@ -1,0 +1,358 @@
+
+input,
+select,
+textarea,
+button,
+.ui-widget,
+.ui-fieldset,
+.ui-fieldset-legend,
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: Arial, "Trebuchet MS", Verdana, sans-serif;
+    font-size: 12px !important;
+}
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+    width: 23px !important;
+}
+
+.ui-widget-header,
+.ui-widget-content,
+.ui-widget-header .ui-widget-header,
+.ui-widget-content .ui-widget-content {
+    font-family: Arial, "Trebuchet MS", Verdana, sans-serif;
+    font-size: 12px !important;
+}
+
+.ui-chkbox .ui-chkbox-label {
+    margin: 3px;
+}
+
+.ui-selectmanycheckbox label {
+    margin-left: 1px;
+    margin-top: auto;
+}
+
+.ui-selectoneradio label {
+    margin-left: 1px;
+}
+
+.ui-datatable thead th,
+.ui-datatable tbody td,
+.ui-datatable tfoot td {
+    white-space: normal;
+}
+
+.ui-datatable .ui-sortable-column-icon {
+    margin: 0 -10px 0 0 !important; /* this has been -16px -10px 0px 0px */
+}
+
+.ui-panelgrid td, .ui-panelgrid tr {
+    border-style: none !important;
+}
+
+.ajax-image {
+    position: absolute;
+    float: left;
+    top: 5px;
+}
+
+.skin-blue-light .sidebar-menu > li > a {
+    color: #3C8DBC !important;
+}
+
+.sidebar-form, .sidebar-menu > li.header {
+    text-align: center !important;
+    font-weight: 600;
+}
+
+.skin-blue-light .sidebar-menu > li > a {
+    font-weight: 600 !important;
+}
+
+.skin-blue-light .sidebar-menu > li.active > a {
+    background: #1E282C none repeat scroll 0% 0%;
+    border-left-color: #3C8DBC;
+}
+
+.skin-blue-light .sidebar-menu > li:hover > a, .skin-blue-light .sidebar-menu > li.active > a {
+    background: #DBECF7 none repeat scroll 0% 0% !important;
+}
+
+.radioButtons,
+.radioButtons td {
+    white-space: nowrap;
+    border: none !important;
+}
+
+.radioLineDirection td:first-child {
+    padding-right: 15px;
+}
+
+.radioButtons input {
+    margin: 2px 0 2px 0;
+}
+
+.radioButtons input,
+.radioButtons label {
+    vertical-align: middle;
+}
+
+.radioButtons label {
+    margin-left: 4px;
+}
+
+.checkBoxes {
+    white-space: nowrap;
+}
+
+.checkBoxes input,
+.checkBoxes label {
+    vertical-align: middle;
+}
+
+table .columnTop {
+    vertical-align: top;
+}
+
+.ui-tree .ui-tree-node {
+    cursor: pointer;
+}
+
+.ui-tooltip {
+    max-width: 400px;
+}
+
+.ui-treenode-parent {
+    /*font-weight: 600;*/
+    font-weight: normal;
+}
+
+.ui-treenode-leaf {
+    font-weight: normal;
+}
+
+.icon-folder-open {
+    background-image: url("#{resource['images/folder-open.gif']}") !important;
+}
+
+.icon-folder-collapse {
+    background-image: url("#{resource['images/folder.gif']}") !important;
+}
+
+/*.ui-treenode-icon {
+    width: 24px;
+    height: 24px;
+}*/
+
+/* FLUID GRID */
+.pe-fluidgrid {
+    /*min-width: 600px;*/
+    margin: 0 auto;
+}
+
+.pe-fluidgrid-item { 
+    /*border: 1px solid black;*/
+    width: 160px;  
+    height: 60px;  
+}  
+
+.pe-fluidgrid-item input {  
+    width: 150px;  
+} 
+
+/* STYLES FOR INPUT TEXT */
+.pe-fluidgrid-item.input-id {
+    width: 100px;
+}
+.pe-fluidgrid-item.input-id input {  
+    width: 90px;
+} 
+.pe-fluidgrid-item.input-small {
+    width: 160px;
+}
+.pe-fluidgrid-item.input-small input {  
+    width: 150px;
+} 
+.pe-fluidgrid-item.input-medium {
+    width: 320px;
+}
+.pe-fluidgrid-item.input-medium input {  
+    width: 310px;
+} 
+.pe-fluidgrid-item.input-large {
+    width: 640px;
+}
+.pe-fluidgrid-item.input-large input {  
+    width: 630px;
+}
+
+.pe-fluidgrid-item.input-semi-large {
+    width: 500px;
+}
+.pe-fluidgrid-item.input-semi-large input {  
+    width: 500px;
+}
+
+.pe-fluidgrid-item.input-responsive {
+    width: 260px;
+}
+.pe-fluidgrid-item.input-responsive input {  
+    width: 250px;
+} 
+
+/* STYLES FOR INPUT TEXT AREA */
+.pe-fluidgrid-item.textarea-small {
+    height: 80px;
+    width: 160px;
+}
+.pe-fluidgrid-item.textarea-small textarea {  
+    height: 45px;
+    width: 150px;
+} 
+.pe-fluidgrid-item.textarea-medium {
+    height: 80px;
+    width: 320px;
+}
+.pe-fluidgrid-item.textarea-medium textarea {  
+    height: 45px;
+    width: 310px;
+} 
+.pe-fluidgrid-item.textarea-large {
+    height: 80px;
+    width: 640px;
+}
+.pe-fluidgrid-item.textarea-large textarea {  
+    height: 45px;
+    width: 630px;
+} 
+.pe-fluidgrid-item.textarea-longtext {
+    width: 860px;
+    height: 380px;
+}
+.pe-fluidgrid-item.textarea-longtext textarea {  
+    width: 630px;
+    height: 350px;
+} 
+
+/* STYLES FOR SELECT */
+.pe-fluidgrid-item.select-small {
+    width: 160px !important;
+}
+.pe-fluidgrid-item.select-small .ui-selectonemenu {  
+    width: 157px !important;  
+}  
+.pe-fluidgrid-item.select-small .ui-selectonemenu .ui-selectonemenu-label {  
+    width: 130px !important;  
+}  
+.pe-fluidgrid-item.select-medium {
+    width: 320px !important;
+}
+.pe-fluidgrid-item.select-medium .ui-selectonemenu {  
+    width: 317px !important;  
+}  
+.pe-fluidgrid-item.select-medium .ui-selectonemenu .ui-selectonemenu-label {  
+    width: 300px !important;  
+}  
+.pe-fluidgrid-item.select-large {
+    width: 640px !important;
+}
+.pe-fluidgrid-item.select-large .ui-selectonemenu {  
+    width: 637px !important;  
+}  
+.pe-fluidgrid-item.select-large .ui-selectonemenu .ui-selectonemenu-label {  
+    width: 620px !important;  
+}  
+.pe-fluidgrid-item.select-responsive {
+    width: 260px !important;
+}
+.pe-fluidgrid-item.select-responsive .ui-selectonemenu {  
+    width: 255px !important;  
+}  
+.pe-fluidgrid-item.select-responsive .ui-selectonemenu .ui-selectonemenu-label {  
+    width: 250px !important;  
+}  
+
+/* STYLES FOR CALENDAR */
+.pe-fluidgrid-item.calendar input {  
+    width: 120px;  
+}  
+.pe-fluidgrid-item.input-medium-icon {
+    width: 320px;
+}
+.pe-fluidgrid-item.input-medium-icon input {  
+    width: 280px;
+} 
+
+.pe-fluidgrid-item.input-domicilio {
+    width: 640px;
+}
+.pe-fluidgrid-item.input-domicilio input {  
+    width: 590px;
+} 
+
+
+.dynaFormLabel {  
+    font-weight: bold;  
+    margin-bottom: 7px;  
+}  
+
+.ui-growl { 
+    top:65px !important;
+    z-index:99999 !important;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.redmond-fa-icon { color: #619fcf; } 
+.bluesky-fa-icon { color: #406ba6; } 
+.glass-x-fa-icon { color: #386186; } 
+.home-fa-icon { color: #52575c; } 
+.cupertino-fa-icon { color: #619fcf; } 
+.delta-fa-icon { color: #4da5ef; } 
+.aristo-fa-icon { color: #85b2cb; } 
+.sam-fa-icon { color: #7890d0; } 
+.start-fa-icon { color: #0078ae; } 
+.vader-fa-icon { color: #adadad; } 
+.ui-lightness-fa-icon { color: #f6a828; } 
+.ui-darkness-fa-icon { color: #aaa; } 
+.trontastic-fa-icon { color: #9fda58; } 
+.sunny-fa-icon { color: #fece2f; } 
+.humanity-fa-icon { color: #c99873; } 
+.hot-sneaks-fa-icon { color: #93c3cd; }
+.excite-bike-fa-icon { color: #1484e6; }
+.dot-luv-fa-icon { color: #5c8ab7; }
+.flick-fa-icon { color: #0073ea; }
+
+.btn btn-lg btn-default {
+    width: 150px;
+}
+
+.numberBlock {
+    font-size: 40px; 
+    font-weight: bolder; 
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a img.thumb {
+    background: #DDD none repeat scroll 0% 0%;
+    padding: 3px;
+    margin: 0 auto;
+}
+
+a:hover img.thumb, a:active img.thumb, a:visited img.thumb {
+    background: #8DB2E3 none repeat scroll 0% 0%;
+}	
+
+/*a.thumb {
+    padding: 3px;
+}*/
+

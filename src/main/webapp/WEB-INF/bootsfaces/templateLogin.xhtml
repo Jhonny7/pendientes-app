@@ -1,0 +1,80 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;">
+    <!ENTITY bull "&#8226;">
+    <!ENTITY copy "&#169;">
+    ]>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:b="http://bootsfaces.net/ui"
+          xmlns:ui="http://java.sun.com/jsf/facelets"
+          xmlns:p="http://primefaces.org/ui">
+
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+            </f:facet>
+
+            <title>Administración de Pendientes</title>
+            <style type="text/css">
+                .ui-growl {
+                    top:65px;
+                    z-index:99999;
+                }
+                .title-brand-large {
+                    display: none;
+                }
+                .title-brand-short {
+                    display: block;
+                }
+                @media (min-width: 768px) {
+                    .title-brand-large {
+                        display: block;
+                    }
+                    .title-brand-short {
+                        display: none;
+                    }
+                }
+
+            </style>
+
+            <ui:insert name="resources-app">
+                <ui:include src="/WEB-INF/bootsfaces/resources-app.xhtml"/>
+            </ui:insert>
+
+        </h:head>
+
+        <h:body>
+            <h:outputScript library="holder" name="holder.js" />
+
+            <p:ajaxStatus styleClass="logo" style="right: 45px; width:32px; height:32px; margin-top: 55px;">
+                <f:facet name="start">
+                    <h:graphicImage library="images" name="ajax-loader.gif" alt="AJAX Status"/>
+                </f:facet>
+                <f:facet name="complete">
+                    <h:outputText value=""/>
+                </f:facet>
+            </p:ajaxStatus>
+
+            <b:navBar inverse="true" fixed="top" fluid="true" >
+                <a class="navbar-brand" href="#">
+                    <span class="title-brand-short">Pendientes</span>
+                    <span class="title-brand-large">Pendientes | Administación de Pendientes</span>
+                </a>
+            </b:navBar>
+
+            <b:container fluid="true">
+                <p:spacer height="50" />
+                <ui:insert name="centerContent"/>
+                <p:spacer height="50" />
+            </b:container>
+
+            <ui:insert name="nbtop">
+                <ui:include src="/WEB-INF/bootsfaces/footer.xhtml"/>
+            </ui:insert>
+
+        </h:body>
+    </html>
